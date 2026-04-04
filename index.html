@@ -5,9 +5,33 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MEZZIM 2025</title>
 <style>
-  
-  
-  
+
+  /* ── Fonts ── */
+  @font-face { font-family:'NM-BoldExtraSqueezed'; src:url('fonts/OTNeueMontreal-BoldExtraSqueezed.otf'); }
+  @font-face { font-family:'NM-BoldSemiSqueezed';  src:url('fonts/OTNeueMontreal-BoldSemiSqueezed.otf'); }
+  @font-face { font-family:'NM-BoldSqueezed';      src:url('fonts/OTNeueMontreal-BoldSqueezed.otf'); }
+  @font-face { font-family:'NM-BoldUltraSqueezed'; src:url('fonts/OTNeueMontreal-BoldUltraSqueezed.otf'); }
+  @font-face { font-family:'NM-BookExtraSqueezed'; src:url('fonts/OTNeueMontreal-BookExtraSqueezed.otf'); }
+  @font-face { font-family:'NM-BookSemiSqueezed';  src:url('fonts/OTNeueMontreal-BookSemiSqueezed.otf'); }
+  @font-face { font-family:'NM-BookSqueezed';      src:url('fonts/OTNeueMontreal-BookSqueezed.otf'); }
+  @font-face { font-family:'NM-BookUltraSqueezed'; src:url('fonts/OTNeueMontreal-BookUltraSqueezed.otf'); }
+  @font-face { font-family:'NM-ItalicExtraSqueezed'; src:url('fonts/OTNeueMontreal-ItalicExtraSqueezed.otf'); }
+  @font-face { font-family:'NM-ItalicSemiSqueezed'; src:url('fonts/OTNeueMontreal-ItalicSemiSqueezed.otf'); }
+  @font-face { font-family:'NM-ItalicSqueezed';    src:url('fonts/OTNeueMontreal-ItalicSqueezed.otf'); }
+  @font-face { font-family:'NM-ItalicUltraSqueezed'; src:url('fonts/OTNeueMontreal-ItalicUltraSqueezed.otf'); }
+  @font-face { font-family:'NM-MediumExtraSqueezed'; src:url('fonts/OTNeueMontreal-MediumExtraSqueezed.otf'); }
+  @font-face { font-family:'NM-MediumSemiSqueezed'; src:url('fonts/OTNeueMontreal-MediumSemiSqueezed.otf'); }
+  @font-face { font-family:'NM-MediumSqueezed';    src:url('fonts/OTNeueMontreal-MediumSqueezed.otf'); }
+  @font-face { font-family:'NM-MediumUltraSqueezed'; src:url('fonts/OTNeueMontreal-MediumUltraSqueezed.otf'); }
+  @font-face { font-family:'NM-SemiBoldExtraSqueezed'; src:url('fonts/OTNeueMontreal-SemiBoldExtraSqueezed.otf'); }
+  @font-face { font-family:'NM-SemiBoldSemiSqueezed'; src:url('fonts/OTNeueMontreal-SemiBoldSemiSqueezed.otf'); }
+  @font-face { font-family:'NM-SemiBoldSqueezed';  src:url('fonts/OTNeueMontreal-SemiBoldSqueezed.otf'); }
+  @font-face { font-family:'NM-SemiBoldUltraSqueezed'; src:url('fonts/OTNeueMontreal-SemiBoldUltraSqueezed.otf'); }
+  @font-face { font-family:'NM-ThinExtraSqueezed'; src:url('fonts/OTNeueMontreal-ThinExtraSqueezed.otf'); }
+  @font-face { font-family:'NM-ThinSemiSqueezed';  src:url('fonts/OTNeueMontreal-ThinSemiSqueezed.otf'); }
+  @font-face { font-family:'NM-ThinSqueezed';      src:url('fonts/OTNeueMontreal-ThinSqueezed.otf'); }
+  @font-face { font-family:'NM-ThinUltraSqueezed'; src:url('fonts/OTNeueMontreal-ThinUltraSqueezed.otf'); }
+
   
 
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -202,7 +226,7 @@
 <body>
 
 <video id="bg-video" autoplay muted loop playsinline>
-  <source src="background-video.mp4" type="video/mp4">
+  <source src="images/background-video (1).mp4" type="video/mp4">
 </video>
 <div id="bg-overlay"></div>
 <div id="grain"></div>
@@ -236,23 +260,33 @@
 <div id="desktop">
 
   <div class="icon" id="icon-us"      style="left:285px;top:600px;"  ondblclick="openWin('win-us')">
-    <div class="icon-img"><img src="/assets/icons/replace.png"      alt="us"      width="180"></div>
+    <div class="icon-img"><img src="icons/us.svg"      alt="us"      width="180"></div>
     <span class="icon-label">/US</span>
   </div>
 
   <div class="icon" id="icon-gallery" style="left:885px;top:360px;"  ondblclick="openWin('win-gallery')">
-    <div class="icon-img"><img src="/assets/icons/replace.png" alt="gallery" width="195"></div>
+    <div class="icon-img"><img src="icons/gallery.svg" alt="gallery" width="195"></div>
     <span class="icon-label">/GALLERY</span>
   </div>
 
   <div class="icon" id="icon-about"   style="left:1350px;top:562px;" ondblclick="openWin('win-about')">
-    <div class="icon-img"><img src="/assets/icons/replace.png"   alt="about"   width="165"></div>
+    <div class="icon-img"><img src="icons/about.svg"   alt="about"   width="165"></div>
     <span class="icon-label">//ABOUT</span>
   </div>
 
   <div class="icon" id="icon-tunes"   style="left:1860px;top:450px;" ondblclick="openWin('win-tunes')">
-    <div class="icon-img"><img src="/assets/icons/replace.png"   alt="tunes"   width="150"></div>
+    <div class="icon-img"><img src="icons/tunes.svg"   alt="tunes"   width="150"></div>
     <span class="icon-label">/TUNES</span>
+  </div>
+
+  <div class="icon" id="icon-dont"    style="right:180px;top:380px;position:fixed;" ondblclick="openWin('win-dontpress')">
+    <div class="icon-img"><img src="icons/don't.svg"  alt="dont"    width="150"></div>
+    <span class="icon-label">//DON'T!!</span>
+  </div>
+
+  <div class="icon" id="icon-trash"   style="right:140px;top:560px;position:fixed;">
+    <div class="icon-img"><img src="icons/trash.svg"  alt="trash"   width="120"></div>
+    <span class="icon-label">TRASH</span>
   </div>
 
 </div>
@@ -402,7 +436,7 @@
   </div>
   <div class="win-body">
     <div class="music-player">
-      <div class="music-disc" id="music-disc"><img src="/assets/icons/replace.png" alt="cd"></div>
+      <div class="music-disc" id="music-disc"><img src="icons/tunes.svg" alt="cd"></div>
       <div class="music-title" id="music-title">PEARL JAM — Even Flow</div>
       <div class="music-sub">// track 01</div>
       <div class="music-controls">
