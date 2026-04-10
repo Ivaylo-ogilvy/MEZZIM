@@ -120,7 +120,7 @@
   /* ── Taskbar ── */
   #taskbar {
     position:absolute; bottom:0; left:0; right:0;
-    height:99px;               /* 66px × 1.5 */
+    height:66px;               /* match SVG natural height */
     z-index:20;
     display:flex; align-items:stretch;
     overflow:hidden;
@@ -145,10 +145,10 @@
     transition:filter .15s, opacity .15s;
   }
   .tb-svg-btn:hover { filter:brightness(1.2); opacity:.9; }
-  /* height scaled: dont-press 66→99, lol 41→62, ps 41→62 */
-  #btn-dontpress { height:99px; }
-  #btn-lol       { height:62px; margin-left:6px; }
-  #btn-ps        { height:62px; margin-left:6px; }
+  /* natural SVG heights */
+  #btn-dontpress { height:66px; }
+  #btn-lol       { height:41px; margin-left:6px; }
+  #btn-ps        { height:41px; margin-left:6px; }
 
   /* @STUDIO_FORK is already baked into the app-bar SVG text at the right */
 
@@ -259,24 +259,24 @@
 <!-- Desktop icons -->
 <div id="desktop">
 
-  <div class="icon" id="icon-us"      style="left:285px;top:600px;"  ondblclick="openWin('win-us')">
-    <div class="icon-img"><img src="icons/us.svg"      alt="us"      width="130"></div>
-    <span class="icon-label">/US</span>
-  </div>
-
-  <div class="icon" id="icon-gallery" style="left:885px;top:360px;"  ondblclick="openWin('win-gallery')">
+  <div class="icon" id="icon-gallery" style="left:25px;top:120px;"  ondblclick="openWin('win-gallery')">
     <div class="icon-img"><img src="icons/gallery.svg" alt="gallery" width="130"></div>
     <span class="icon-label">/GALLERY</span>
   </div>
 
-  <div class="icon" id="icon-about"   style="left:1350px;top:562px;" ondblclick="openWin('win-about')">
-    <div class="icon-img"><img src="icons/about.svg"   alt="about"   width="130"></div>
-    <span class="icon-label">//ABOUT</span>
-  </div>
-
-  <div class="icon" id="icon-tunes"   style="left:1860px;top:450px;" ondblclick="openWin('win-tunes')">
+  <div class="icon" id="icon-tunes"   style="left:25px;top:310px;" ondblclick="openWin('win-tunes')">
     <div class="icon-img"><img src="icons/tunes.svg"   alt="tunes"   width="120"></div>
     <span class="icon-label">/TUNES</span>
+  </div>
+
+  <div class="icon" id="icon-us"      style="left:25px;top:500px;"  ondblclick="openWin('win-us')">
+    <div class="icon-img"><img src="icons/us.svg"      alt="us"      width="130"></div>
+    <span class="icon-label">/US</span>
+  </div>
+
+  <div class="icon" id="icon-about"   style="left:25px;top:690px;" ondblclick="openWin('win-about')">
+    <div class="icon-img"><img src="icons/about.svg"   alt="about"   width="130"></div>
+    <span class="icon-label">//ABOUT</span>
   </div>
 
   <div class="icon" id="icon-dont"    style="right:180px;top:380px;position:fixed;" ondblclick="openWin('win-dontpress')">
@@ -288,6 +288,7 @@
     <div class="icon-img"><img src="icons/trash.svg"  alt="trash"   width="130"></div>
     <span class="icon-label">TRASH</span>
   </div>
+
 
 </div>
 
@@ -465,6 +466,11 @@ document.querySelectorAll('.icon').forEach(icon=>{
     dragging=icon;
     const r=icon.getBoundingClientRect();
     ox=e.clientX-r.left; oy=e.clientY-r.top;
+    // Convert fixed+right-anchored icons to fixed+left-anchored for dragging
+    if(getComputedStyle(icon).position==='fixed' && icon.style.right){
+      icon.style.left=r.left+'px';
+      icon.style.right='';
+    }
     icon.style.zIndex=90; e.preventDefault();
   });
 });
